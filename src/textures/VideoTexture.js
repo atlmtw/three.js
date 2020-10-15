@@ -40,6 +40,8 @@ VideoTexture.prototype = Object.assign( Object.create( Texture.prototype ), {
 		const video = this.image;
 		const hasVideoFrameCallback = 'requestVideoFrameCallback' in video;
 
+		if( video.paused ) return;
+
 		if ( hasVideoFrameCallback === false && video.readyState >= video.HAVE_CURRENT_DATA ) {
 
 			this.needsUpdate = true;
