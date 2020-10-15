@@ -20033,6 +20033,7 @@
 		update: function update() {
 			var video = this.image;
 			var hasVideoFrameCallback = ('requestVideoFrameCallback' in video);
+			if (video.paused) return;
 
 			if (hasVideoFrameCallback === false && video.readyState >= video.HAVE_CURRENT_DATA) {
 				this.needsUpdate = true;
